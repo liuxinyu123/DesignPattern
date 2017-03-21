@@ -1,8 +1,5 @@
 #include <iostream>
 
-using std::cout;
-using std::endl;
-
 typedef enum ProductTypeTag
 {
 	TypeA,
@@ -25,7 +22,7 @@ class ProductA : public Product
 public:
 	   void show ()
 		{
-			cout << "I am a ProductA" << endl;
+			std::cout << "I am a ProductA" << std::endl;
 		}	   
 	   ~ProductA () {}
 };
@@ -36,7 +33,7 @@ class ProductB : public Product
 public:
 	   void show ()
 		{
-			cout << "I am a ProductB" << endl;
+			std::cout << "I am a ProductB" << std::endl;
 		}	   
 	   ~ProductB () {}
 };
@@ -47,7 +44,7 @@ class ProductC : public Product
 public:
 	   void show ()
 		{
-			cout << "I am a ProductC" << endl;
+			std::cout << "I am a ProductC" << std::endl;
 		}	   
 	   ~ProductC () {}
 };
