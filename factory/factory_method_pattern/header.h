@@ -5,7 +5,10 @@ class Product  //如果有C产品的话，可以从工厂抽象类派生出一�
 	
 public:
 		virtual void show () = 0;
-		virtual ~Product () {}
+		virtual ~Product () 
+		{
+			std::cout << "destory Product" << std::endl;
+		}
 };
 
 class ProductA : public Product
@@ -16,7 +19,10 @@ public:
 		{
 			std::cout << "I am a ProductA" << std::endl;
 		}
-		~ProductA () {}
+		~ProductA () 
+		{
+			std::cout << "destory ProductA" << std::endl;
+		}
 };
 
 class ProductB : public Product
@@ -27,7 +33,10 @@ public:
 		{
 			std::cout << "I am a ProductB" << std::endl;
 		}
-		~ProductB () {}
+		~ProductB ()
+	   	{
+			std::cout << "destory ProductB" << std::endl;
+		}
 };
 
 class Factory 
@@ -35,7 +44,10 @@ class Factory
 	
 public:
 		virtual Product* createProduct () = 0;
-		virtual ~Factory () {}
+		virtual ~Factory () 
+		{
+			std::cout << "destory Factory" << std::endl;
+		}
 };
 
 class FactoryA : public Factory
@@ -46,6 +58,10 @@ public:
 		{
 			return new ProductA ();
 		}
+		 ~FactoryA () 
+		{
+			std::cout << "destory FactoryA" << std::endl;
+		}
 };
 
 class FactoryB : public Factory
@@ -55,6 +71,10 @@ public:
 		Product* createProduct ()
 		{
 			return new ProductB ();
+		}
+		~FactoryB () 
+		{
+			std::cout << "destory FactoryB" << std::endl;
 		}
 };
 
