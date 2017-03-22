@@ -14,40 +14,52 @@ class Product//抽象类
 
 public:
 		virtual void show () = 0;
-		virtual ~Product ()  {}
+		virtual ~Product ()  
+		{
+			std::cout << "destroy Product" << std::endl;
+		}
 };
 
 class ProductA : public Product
 {
 
 public:
-	   void show ()
+	   void show () override
 		{
 			std::cout << "I am a ProductA" << std::endl;
 		}	   
-	   ~ProductA () {}
+	   ~ProductA ()  override
+	   {
+			std::cout << "destroy ProductA" << std::endl;
+	   }
 };
 
 class ProductB : public Product
 {
 
 public:
-	   void show ()
+	   void show () override
 		{
 			std::cout << "I am a ProductB" << std::endl;
 		}	   
-	   ~ProductB () {}
+	   ~ProductB ()  override
+	   {
+			std::cout << "destroy ProductB" << std::endl;
+	   }
 };
 
 class ProductC : public Product
 {
 
 public:
-	   void show ()
+	   void show () override
 		{
 			std::cout << "I am a ProductC" << std::endl;
 		}	   
-	   ~ProductC () {}
+	   ~ProductC ()  override
+	   {
+			std::cout << "destroy ProductC" << std::endl;
+	   }
 };
 
 class Factory 

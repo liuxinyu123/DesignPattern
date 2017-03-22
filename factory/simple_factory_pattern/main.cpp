@@ -6,6 +6,7 @@ using std::endl;
 
 int main (int argc, char *argv[])
 {
+
 	Factory productFactory = Factory ();
 	Product* productObjA = productFactory.createProduct (TypeA);
 	Product* productObjB = productFactory.createProduct (TypeB);
@@ -25,7 +26,7 @@ int main (int argc, char *argv[])
 	delete productObjC;
 
 	cout << "++++++++++++++++++++++++++++++++++++++" << endl;
-
+/*
 	Factory_A productFactory1 = Factory_A ();
 	auto productObjA1 = productFactory1.createProduct (TypeA);
 	auto productObjB1 = productFactory1.createProduct (TypeB);
@@ -39,6 +40,6 @@ int main (int argc, char *argv[])
 
 	if (productObjC1)	
 		productObjC1 -> show ();
-
+*/
 	return 0;
 }
