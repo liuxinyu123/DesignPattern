@@ -9,9 +9,10 @@ class Singleton
 public:
 		static Singleton* getInstance ()
 		{
+			//为了线程安全性，此处可以加锁 lock
 			if (!m_Instance)
 				m_Instance = new Singleton ();
-
+			//在此处解锁 unlock 
 			return m_Instance;
 		}
 		static void destroyInstance ()
