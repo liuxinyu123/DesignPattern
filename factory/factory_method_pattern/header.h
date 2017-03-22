@@ -1,3 +1,6 @@
+#ifndef _HEADER_H_
+#define _HEADER_H_
+
 #include <iostream>
 
 class Product  //如果有C产品的话，可以从工厂抽象类派生出一个专门的工厂类
@@ -78,3 +81,4 @@ public:
 		}
 };
 
+#endif
