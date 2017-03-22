@@ -1,3 +1,6 @@
+#ifndef _HEADER_H_
+#define _HEADER_H_
+
 #include <iostream>
 
 class ProductA
@@ -113,3 +116,5 @@ public:
 			return new ProductB2 ();
 		}
 };
+
+#endif
