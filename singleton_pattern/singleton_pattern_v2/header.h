@@ -10,11 +10,11 @@ public:
 		static Singleton* getInstance ()
 		{
 			if (!m_Instance)
-			{
-				//为了线程安全性，此处可以加锁 lock
+			{ //C++没有直接的Lock操作，请使用其它库的Lock，比如Boost，此处仅为了说明
+				//为了线程安全性，此处可以加锁 lock()
 				if (!m_Instance)
 					m_Instance = new Singleton ();
-				//在此处解锁 unlock 
+				//在此处解锁 unlock() 
 			}
 
 			return m_Instance;
