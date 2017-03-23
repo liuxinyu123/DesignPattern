@@ -18,6 +18,8 @@ public:
 			//在此处解锁 unlock 
 			return m_Instance;
 		}
+		Singleton (const Singleton &s) = delete;
+		Singleton& (const Singleton& s) = delete;
 		static void destroyInstance ()
 		{
 			delete m_Instance;
