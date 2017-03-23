@@ -10,6 +10,8 @@ public:
 			return const_cast<Singleton*> (m_Instance);
 		}
 
+		Singleton (const Singleton& s) = delete;
+		Singleton& operator= (const Singleton& s) = delete;
 		static void destroyInstance ()
 		{
 			delete m_Instance;
