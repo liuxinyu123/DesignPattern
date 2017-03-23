@@ -10,6 +10,8 @@ int main (int argc, char *argv[])
 
 	cout << singletonObj->test () << endl;
 
+	Singleton* singletonObj1 = Singleton::getInstance ();
+	cout << singletonObj1->test () << endl;
 	Singleton::destroyInstance ();
 
 	return 0;

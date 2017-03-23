@@ -11,7 +11,10 @@ public:
 		{
 			//为了线程安全性，此处可以加锁 lock
 			if (!m_Instance)
+			{
 				m_Instance = new Singleton ();
+				std::cout << "operator new" << std::endl;
+			}
 			//在此处解锁 unlock 
 			return m_Instance;
 		}
