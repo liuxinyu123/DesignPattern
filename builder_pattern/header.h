@@ -50,10 +50,47 @@ public:
 						break;
 				case NormalMan:
 						std::cout << "I am a NormalMan" << std::endl;
+						break;
+				default:
+						return;
 			}
 		}
 private:
 		MANTYPE m_type;
 };
 
+class Builder
+{
+
+public:
+		virtual void BuildHead () = 0;
+		virtual void BulidBody () = 0;
+		virtual void BuildLeftHand () = 0;
+		virtual void BuildRightHand () = 0;
+		virtual void BuildLeftFoot () = 0;
+		virtual void BuildRightFoot () = 0;
+		virtual Man* getMan () = 0;
+		virtual ~Builder () {}
+};
+
+class FatManBuilder : public Builder
+{
+
+public:
+		void BuildHead () override
+		{
+			m_builder->BuildHead ();
+		}
+		void BulidBody () override
+		{
+			m_builder->BulidBody ();
+		}
+		void BuildLeftHand () override
+		{
+			m_builder->BuildLeftHand ();
+		}
+
+private:
+		Builder *m_builder;
+};
 #endif
