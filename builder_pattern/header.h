@@ -119,8 +119,55 @@ class ThinManbuilder : public builder
 public:
 		ThinManbuilder ()
 			:m_ThinMan (new Man ()) {}
-
+		void buildHead () override
+		{
+			m_ThinMan->setHead (ThinMan);
+		}
+		void buildBody () override
+		{
+			m_ThinMan->setBody (ThinMan);
+		}
+		void buildLeftHand () override
+		{
+			m_ThinMan->setLeftHand (ThinMan);
+		}
+		void buildRightHand () override
+		{
+			m_ThinMan->setRigthHand (ThinMan);
+		}
+		void buildLeftFoot () override
+		{
+			m_ThinMan->setLeftFoot (ThinMan);
+		}
+		void buildRightFoot () override
+		{
+			m_ThinMan->setRigthFoot (ThinMan);
+		}
+		Man* getMan ()
+		{
+			return m_ThinMan;
+		}
 private:
 		Man* m_ThinMan;
-}
+};
+
+class Director
+{
+
+public:
+		Director (Builder *builder) 
+			:m_builder (builder) {}
+		void createMan () 
+		{
+			m_builder->buildHead ();
+			m_builder->buildBody ();
+			m_builder->buildLeftHand ();
+			m_builder->buildRightHand ();
+			m_builder->buildLeftFoot ();
+			m_builder->buildRightFoot ();
+		}
+private:
+		Builder *m_builder;
+};
+
 #endif
