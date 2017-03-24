@@ -63,34 +63,64 @@ class Builder
 {
 
 public:
-		virtual void BuildHead () = 0;
-		virtual void BulidBody () = 0;
-		virtual void BuildLeftHand () = 0;
-		virtual void BuildRightHand () = 0;
-		virtual void BuildLeftFoot () = 0;
-		virtual void BuildRightFoot () = 0;
+		virtual void buildHead () = 0;
+		virtual void buildBody () = 0;
+		virtual void buildLeftHand () = 0;
+		virtual void buildRightHand () = 0;
+		virtual void buildLeftFoot () = 0;
+		virtual void buildRightFoot () = 0;
 		virtual Man* getMan () = 0;
 		virtual ~Builder () {}
 };
 
-class FatManBuilder : public Builder
+class FatManbuilder : public builder
 {
 
 public:
-		void BuildHead () override
+		FatManbuilder ()
+			:m_FatMan (new Man ()) {}
+		void buildHead () override
 		{
-			m_builder->BuildHead ();
+			m_FatMan->setHead (FatMan);
 		}
-		void BulidBody () override
+		void buildBody () override
 		{
-			m_builder->BulidBody ();
+			m_FatMan->setBody (FatMan);
 		}
-		void BuildLeftHand () override
+		void bulidLeftHand () override
 		{
-			m_builder->BuildLeftHand ();
+			m_FatMan->setLeftHand (FatMan);		
 		}
+		void buildRightHand () override
+		{
+			m_FatMan->setRigthHand (FatMan);
+		}
+		void buildLeftFoot () override
+		{
+			m_FatMan->setLeftFoot (FatMan);
+		}
+		void buildRightFoot () override
+		{
+			m_FatMan->setRigthFoot (FatMan);
+		}
+		Man* getMan () 
+		{
+			return m_FatMan;
+		}
+private:
+		Man *m_FatMan;
+};
+
+
+
+class ThinManbuilder : public builder
+{
+
+public:
+		ThinManbuilder ()
+			:m_ThinMan (new Man ()) {}
 
 private:
-		Builder *m_builder;
-};
+		Man* m_ThinMan;
+}
 #endif
