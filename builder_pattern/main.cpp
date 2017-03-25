@@ -13,6 +13,9 @@ int main (int argc, char *argv[])
 
 	if (fatMan)
 		fatMan->showMan ();
+	
+	delete FatManBuilderObj;
+	delete fatMan;
 
 	return 0;
 }

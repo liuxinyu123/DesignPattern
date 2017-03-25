@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-typedef ManTypeTag
+typedef enum ManTypeTag
 {
 	FatMan,
 	ThinMan,
@@ -38,12 +38,12 @@ public:
 			m_type = type;
 		}
 
-		void showMan (MANTYPE type)
+		void showMan ()
 		{
-			switch (type)
+			switch (m_type)
 			{
 				case FatMan:
-						std::cout << "I am a FatMan" << std::cout;
+						std::cout << "I am a FatMan" << std::endl;
 						break;
 				case ThinMan:
 						std::cout << "I am a ThinMan" << std::endl;
@@ -73,11 +73,11 @@ public:
 		virtual ~Builder () {}
 };
 
-class FatManbuilder : public builder
+class FatManBuilder : public Builder
 {
 
 public:
-		FatManbuilder ()
+		FatManBuilder ()
 			:m_FatMan (new Man ()) {}
 		void buildHead () override
 		{
@@ -87,7 +87,7 @@ public:
 		{
 			m_FatMan->setBody (FatMan);
 		}
-		void bulidLeftHand () override
+		void buildLeftHand () override
 		{
 			m_FatMan->setLeftHand (FatMan);		
 		}
@@ -103,7 +103,7 @@ public:
 		{
 			m_FatMan->setRigthFoot (FatMan);
 		}
-		Man* getMan () 
+		Man* getMan ()  override
 		{
 			return m_FatMan;
 		}
@@ -113,11 +113,11 @@ private:
 
 
 
-class ThinManbuilder : public builder
+class ThinManBuilder : public Builder
 {
 
 public:
-		ThinManbuilder ()
+		ThinManBuilder ()
 			:m_ThinMan (new Man ()) {}
 		void buildHead () override
 		{
@@ -143,7 +143,7 @@ public:
 		{
 			m_ThinMan->setRigthFoot (ThinMan);
 		}
-		Man* getMan ()
+		Man* getMan () override
 		{
 			return m_ThinMan;
 		}
